@@ -158,3 +158,11 @@ C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\obj\Debug
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\obj\Debug\ECommerceFinal.csproj.CopyComplete
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\obj\Debug\ECommerceFinal.dll
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\obj\Debug\ECommerceFinal.pdb
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\bin\EcommerceDatabase.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\bin\EcommerceEntities.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\bin\EcommerceServices.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\bin\EcommerceDatabase.pdb
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\bin\EcommerceDatabase.dll.config
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\bin\EcommerceEntities.pdb
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\bin\EcommerceServices.pdb
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\ECommerceFinal\bin\EcommerceServices.dll.config

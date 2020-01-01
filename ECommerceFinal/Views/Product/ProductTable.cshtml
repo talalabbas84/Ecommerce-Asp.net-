@@ -1,0 +1,124 @@
+﻿@model List<EcommerceEntities.Product>
+@{
+
+                ViewBag.Title = "ProductTable";
+}
+
+
+<div>
+    <form method="post">
+        <input name="Search" id="txtSearch" />
+        <button class="button" type="button" id="btnSearch">Search</button>
+
+        <button type="button" id="btnNew">New</button>
+    </form>
+</div>
+<div>
+    <table class="table ">
+        <thead>
+            <tr>
+                <td>Product Name</td>
+                <td>Category</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td> @product.Name</td>
+                    <td>@product.Category.ID</td>
+                    <td>@product.Price</td>
+                    <td>
+                        <button class="btnEdit" data-id="@product.ID">Edit</button>
+                        <button class="btnDelete" data-id="@product.ID">Delete</button>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+<script>
+    $("#btnSearch").click(function () {
+        var searchValue = $('#txtSearch').val();
+        $.ajax(
+            {
+                url: '/Product/ProductTable',
+                data: {
+                    search: searchValue
+                }
+            }
+        )
+            .done(function (response) {
+                $("#tableContainer").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+            });
+
+    });
+
+    $("#btnNew").click(function () {
+        $.ajax(
+            {
+                url: '/Product/Create',
+
+            }
+        )
+            .done(function (response) {
+                $("#actionContainer").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+            });
+
+    });
+    $(".btnEdit").click(function () {
+        $.ajax(
+            {
+                url: '/Product/Edit',
+                data: {
+                    ID: $(this).attr('data-id')
+                }
+
+            }
+        )
+            .done(function (response) {
+                $("#actionContainer").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+            });
+
+    });
+    $(".btnDelete").click(function () {
+        var confirmDelete = confirm("Are you sure you want to delete this product?");
+        if (confirmDelete) {
+            $.ajax(
+                {
+                    type: 'POST',
+                    url: '/Product/Delete',
+                    data: {
+                        ID: $(this).attr('data-id')
+                    }
+
+                }
+            )
+                .done(function (response) {
+                    $("#tableContainer").html(response);
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("fails");
+                });
+
+
+        }
+    });
+
+
+</script>

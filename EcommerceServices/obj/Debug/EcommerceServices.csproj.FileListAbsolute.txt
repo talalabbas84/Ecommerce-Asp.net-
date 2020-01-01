@@ -4,3 +4,14 @@ C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\De
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\Debug\EcommerceServices.csproj.CoreCompileInputs.cache
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\Debug\EcommerceServices.dll
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\Debug\EcommerceServices.pdb
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EcommerceServices.dll.config
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EcommerceEntities.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EntityFramework.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EcommerceEntities.pdb
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EntityFramework.xml
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\Debug\EcommerceServices.csproj.CopyComplete
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EcommerceDatabase.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EcommerceDatabase.pdb
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EcommerceDatabase.dll.config

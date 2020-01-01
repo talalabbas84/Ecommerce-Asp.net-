@@ -1,0 +1,39 @@
+﻿@model EcommerceEntities.Product
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Product</h2>
+<form id="editProduct">
+    <input name="ID" value="@Model.ID" type="hidden" />
+    <label>Name</label>
+    <input name="name" value="@Model.Name" />
+    <br />
+    <label>Description</label>
+    <input name="description" value="@Model.Description" />
+    <br />
+    <label>Price</label>
+    <input name="price" value="@Model.Price" />
+    <br />
+    <button id="btnUpdate" type="button">Update</button>
+</form>
+<script>
+    $("#btnUpdate").click(function () {
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Product/Edit',
+                data: $("#editProduct").serialize()
+            }
+        )
+            .done(function (response) {
+                $("#tableContainer").html(response);
+                $("#actionContainer").html("");
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+            });
+
+    });
+</script>

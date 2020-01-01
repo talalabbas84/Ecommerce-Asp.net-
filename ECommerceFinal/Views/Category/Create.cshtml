@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Category</h2>
+<form id="createCategory">
+    <label>Name</label>
+    <input name="name" />
+
+    <br />
+    <label>Description</label>
+    <input name="description" />
+    <br />
+
+    <button id="btnSave" type="button">Save</button>
+</form>
+<script>
+    $("#btnSave").click(function () {
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Category/Create',
+                data: $("#createCategory").serialize()
+            }
+        )
+            .done(function (response) {
+                $("#tableContainer").html(response);
+                $("#actionContainer").html("");
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+            });
+
+    });
+</script>
