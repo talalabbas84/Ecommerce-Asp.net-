@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE7751E5-D368-4A65-AA98-53406B6EAFBB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ECommerceFinal</RootNamespace>
+    <AssemblyName>ECommerceFinal</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\style.min.css" />
+    <Content Include="Content\fonts\fa-brands-400.svg" />
+    <Content Include="Content\fonts\fa-regular-400.svg" />
+    <Content Include="Content\fonts\fa-solid-900.svg" />
+    <Content Include="Content\fonts\ionicons.svg" />
+    <Content Include="Content\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Content\images\about-us\1.jpg" />
+    <Content Include="Content\images\about-us\team\1.jpg" />
+    <Content Include="Content\images\about-us\team\2.jpg" />
+    <Content Include="Content\images\about-us\team\3.jpg" />
+    <Content Include="Content\images\about-us\team\4.jpg" />
+    <Content Include="Content\images\banner\1-1.jpg" />
+    <Content Include="Content\images\banner\1-2.jpg" />
+    <Content Include="Content\images\banner\1-3.jpg" />
+    <Content Include="Content\images\banner\1-4.jpg" />
+    <Content Include="Content\images\banner\1-5.jpg" />
+    <Content Include="Content\images\banner\1-6.jpg" />
+    <Content Include="Content\images\banner\2-1.jpg" />
+    <Content Include="Content\images\banner\2-2.jpg" />
+    <Content Include="Content\images\banner\2-3.jpg" />
+    <Content Include="Content\images\banner\2-6.jpg" />
+    <Content Include="Content\images\blog\1.jpg" />
+    <Content Include="Content\images\blog\2.jpg" />
+    <Content Include="Content\images\blog\3.jpg" />
+    <Content Include="Content\images\blog\4.jpg" />
+    <Content Include="Content\images\blog\5.jpg" />
+    <Content Include="Content\images\blog\6.jpg" />
+    <Content Include="Content\images\blog\admin.jpg" />
+    <Content Include="Content\images\blog\user.jpg" />
+    <Content Include="Content\images\brand\1.png" />
+    <Content Include="Content\images\brand\2.png" />
+    <Content Include="Content\images\brand\3.png" />
+    <Content Include="Content\images\brand\4.png" />
+    <Content Include="Content\images\brand\5.png" />
+    <Content Include="Content\images\brand\6.png" />
+    <Content Include="Content\images\breadcrumb\1.jpg" />
+    <Content Include="Content\images\coming-soon\1920x520pic.jpg" />
+    <Content Include="Content\images\coming-soon\bg-1.jpg" />
+    <Content Include="Content\images\coming-soon\flake.png" />
+    <Content Include="Content\images\Custom\1920x520pic.jpg" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\footer\logo\1.png" />
+    <Content Include="Content\images\footer\logo\2.png" />
+    <Content Include="Content\images\footer\payment\1.png" />
+    <Content Include="Content\images\insta-icon\1.png" />
+    <Content Include="Content\images\instagram\1.jpg" />
+    <Content Include="Content\images\instagram\2.jpg" />
+    <Content Include="Content\images\instagram\3.jpg" />
+    <Content Include="Content\images\instagram\4.jpg" />
+    <Content Include="Content\images\instagram\5.jpg" />
+    <Content Include="Content\images\instagram\6.jpg" />
+    <Content Include="Content\images\instagram\7.jpg" />
+    <Content Include="Content\images\kenne\blog\blog-details.jpg" />
+    <Content Include="Content\images\kenne\blog\blog-grid_view.jpg" />
+    <Content Include="Content\images\kenne\blog\blog-list_view.jpg" />
+    <Content Include="Content\images\kenne\feature\bootstrap.png" />
+    <Content Include="Content\images\kenne\feature\code.png" />
+    <Content Include="Content\images\kenne\feature\css3.png" />
+    <Content Include="Content\images\kenne\feature\document.png" />
+    <Content Include="Content\images\kenne\feature\google-font.png" />
+    <Content Include="Content\images\kenne\feature\gulp.png" />
+    <Content Include="Content\images\kenne\feature\html5.png" />
+    <Content Include="Content\images\kenne\feature\ionicon.png" />
+    <Content Include="Content\images\kenne\feature\jquery.png" />
+    <Content Include="Content\images\kenne\feature\magnific-popup.png" />
+    <Content Include="Content\images\kenne\feature\mail.png" />
+    <Content Include="Content\images\kenne\feature\responsive.png" />
+    <Content Include="Content\images\kenne\feature\sass.png" />
+    <Content Include="Content\images\kenne\feature\slick.png" />
+    <Content Include="Content\images\kenne\feature\speed.png" />
+    <Content Include="Content\images\kenne\feature\w3c-validation.png" />
+    <Content Include="Content\images\kenne\hero-bg.jpg" />
+    <Content Include="Content\images\kenne\home\1.jpg" />
+    <Content Include="Content\images\kenne\home\2.jpg" />
+    <Content Include="Content\images\kenne\home\3.jpg" />
+    <Content Include="Content\images\kenne\home\4.jpg" />
+    <Content Include="Content\images\kenne\logo\1.png" />
+    <Content Include="Content\images\kenne\logo\2.png" />
+    <Content Include="Content\images\kenne\other\404.jpg" />
+    <Content Include="Content\images\kenne\other\about-us.jpg" />
+    <Content Include="Content\images\kenne\other\cart.jpg" />
+    <Content Include="Content\images\kenne\other\checkout.jpg" />
+    <Content Include="Content\images\kenne\other\coming-soon.jpg" />
+    <Content Include="Content\images\kenne\other\compare.jpg" />
+    <Content Include="Content\images\kenne\other\contact.jpg" />
+    <Content Include="Content\images\kenne\other\faq.jpg" />
+    <Content Include="Content\images\kenne\other\login-register.jpg" />
+    <Content Include="Content\images\kenne\other\my-account.jpg" />
+    <Content Include="Content\images\kenne\other\wishlist.jpg" />
+    <Content Include="Content\images\kenne\shop\shop-fullwidth.jpg" />
+    <Content Include="Content\images\kenne\shop\shop-left-sidebar.jpg" />
+    <Content Include="Content\images\kenne\shop\shop-list-fullwidth.jpg" />
+    <Content Include="Content\images\kenne\shop\shop-list-left-sidebar.jpg" />
+    <Content Include="Content\images\kenne\shop\shop-list-right-sidebar.jpg" />
+    <Content Include="Content\images\kenne\shop\shop-right-sidebar.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-affiliate.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-gallery-left.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-gallery-right.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-group.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-sale.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-slider.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-sticky-left.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-sticky-right.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-tab-style-left.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-tab-style-right.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product-variable.jpg" />
+    <Content Include="Content\images\kenne\shop\single-product.jpg" />
+    <Content Include="Content\images\menu\bg\1.jpg" />
+    <Content Include="Content\images\menu\icon\1.jpg" />
+    <Content Include="Content\images\menu\icon\2.jpg" />
+    <Content Include="Content\images\menu\icon\light-close.png" />
+    <Content Include="Content\images\menu\logo\1.png" />
+    <Content Include="Content\images\menu\logo\2.png" />
+    <Content Include="Content\images\product\1-1.jpg" />
+    <Content Include="Content\images\product\1-2.jpg" />
+    <Content Include="Content\images\product\2-1.jpg" />
+    <Content Include="Content\images\product\2-2.jpg" />
+    <Content Include="Content\images\product\3-1.jpg" />
+    <Content Include="Content\images\product\3-2.jpg" />
+    <Content Include="Content\images\product\4-1.jpg" />
+    <Content Include="Content\images\product\4-2.jpg" />
+    <Content Include="Content\images\product\5-1.jpg" />
+    <Content Include="Content\images\product\5-2.jpg" />
+    <Content Include="Content\images\product\6-1.jpg" />
+    <Content Include="Content\images\product\6-2.jpg" />
+    <Content Include="Content\images\product\7-1.jpg" />
+    <Content Include="Content\images\product\7-2.jpg" />
+    <Content Include="Content\images\product\8-1.jpg" />
+    <Content Include="Content\images\product\8-2.jpg" />
+    <Content Include="Content\images\product\small-size\1.jpg" />
+    <Content Include="Content\images\product\small-size\2.jpg" />
+    <Content Include="Content\images\product\small-size\3.jpg" />
+    <Content Include="Content\images\product\small-size\4.jpg" />
+    <Content Include="Content\images\product\small-size\5.jpg" />
+    <Content Include="Content\images\slider\1-1.jpg" />
+    <Content Include="Content\images\slider\1-2.jpg" />
+    <Content Include="Content\images\slider\2-1.jpg" />
+    <Content Include="Content\images\slider\2-2.jpg" />
+    <Content Include="Content\images\testimonial\1.jpg" />
+    <Content Include="Content\images\testimonial\2.jpg" />
+    <Content Include="Content\images\testimonial\3.jpg" />
+    <Content Include="Content\images\ui-icon\ui-icons_444444_256x240.png" />
+    <Content Include="Content\images\ui-icon\ui-icons_555555_256x240.png" />
+    <Content Include="Content\images\ui-icon\ui-icons_777620_256x240.png" />
+    <Content Include="Content\images\ui-icon\ui-icons_777777_256x240.png" />
+    <Content Include="Content\images\ui-icon\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\images\ui-icon\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\js\ajax-mail.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\plugins\instafeed.min.js" />
+    <Content Include="Content\js\plugins\jquery-ui.min.js" />
+    <Content Include="Content\js\plugins\jquery.barrating.min.js" />
+    <Content Include="Content\js\plugins\jquery.counterup.js" />
+    <Content Include="Content\js\plugins\jquery.nice-select.js" />
+    <Content Include="Content\js\plugins\jquery.sticky-sidebar.js" />
+    <Content Include="Content\js\plugins\jquery.ui.touch-punch.min.js" />
+    <Content Include="Content\js\plugins\jquery.zoom.min.js" />
+    <Content Include="Content\js\plugins\plugins.js" />
+    <Content Include="Content\js\plugins\plugins.min.js" />
+    <Content Include="Content\js\plugins\slick.min.js" />
+    <Content Include="Content\js\plugins\theia-sticky-sidebar.min.js" />
+    <Content Include="Content\js\plugins\timecircles.js" />
+    <Content Include="Content\js\plugins\waypoints.min.js" />
+    <Content Include="Content\js\vendor\bootstrap.min.js" />
+    <Content Include="Content\js\vendor\jquery-1.12.4.min.js" />
+    <Content Include="Content\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="Content\js\vendor\popper.min.js" />
+    <Content Include="Content\js\vendor\vendor.js" />
+    <Content Include="Content\js\vendor\vendor.min.js" />
+    <Content Include="Content\php\mail.php" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\fa-brands-400.eot" />
+    <Content Include="Content\fonts\fa-brands-400.ttf" />
+    <Content Include="Content\fonts\fa-brands-400.woff" />
+    <Content Include="Content\fonts\fa-brands-400.woff2" />
+    <Content Include="Content\fonts\fa-regular-400.eot" />
+    <Content Include="Content\fonts\fa-regular-400.ttf" />
+    <Content Include="Content\fonts\fa-regular-400.woff" />
+    <Content Include="Content\fonts\fa-regular-400.woff2" />
+    <Content Include="Content\fonts\fa-solid-900.eot" />
+    <Content Include="Content\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\fonts\fa-solid-900.woff" />
+    <Content Include="Content\fonts\fa-solid-900.woff2" />
+    <Content Include="Content\fonts\ionicons.eot" />
+    <Content Include="Content\fonts\ionicons.ttf" />
+    <Content Include="Content\fonts\ionicons.woff" />
+    <Content Include="Content\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Content\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Content\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Content\scss\base\_mixins.scss" />
+    <Content Include="Content\scss\base\_typography.scss" />
+    <Content Include="Content\scss\base\_variables.scss" />
+    <Content Include="Content\scss\components\_animation.scss" />
+    <Content Include="Content\scss\components\_banner.scss" />
+    <Content Include="Content\scss\components\_brand.scss" />
+    <Content Include="Content\scss\components\_breadcrumb.scss" />
+    <Content Include="Content\scss\components\_button.scss" />
+    <Content Include="Content\scss\components\_form.scss" />
+    <Content Include="Content\scss\components\_instagram.scss" />
+    <Content Include="Content\scss\components\_modal.scss" />
+    <Content Include="Content\scss\components\_navigation.scss" />
+    <Content Include="Content\scss\components\_product-tab.scss" />
+    <Content Include="Content\scss\components\_product.scss" />
+    <Content Include="Content\scss\components\_service.scss" />
+    <Content Include="Content\scss\components\_slider.scss" />
+    <Content Include="Content\scss\components\_social-link.scss" />
+    <Content Include="Content\scss\pages\_404.scss" />
+    <Content Include="Content\scss\pages\_about-us.scss" />
+    <Content Include="Content\scss\pages\_blog.scss" />
+    <Content Include="Content\scss\pages\_cart.scss" />
+    <Content Include="Content\scss\pages\_checkout.scss" />
+    <Content Include="Content\scss\pages\_coming-soon.scss" />
+    <Content Include="Content\scss\pages\_compare.scss" />
+    <Content Include="Content\scss\pages\_contact.scss" />
+    <Content Include="Content\scss\pages\_faq.scss" />
+    <Content Include="Content\scss\pages\_login-register.scss" />
+    <Content Include="Content\scss\pages\_my-account.scss" />
+    <Content Include="Content\scss\pages\_shop.scss" />
+    <Content Include="Content\scss\pages\_single-product.scss" />
+    <Content Include="Content\scss\pages\_wishlist.scss" />
+    <Content Include="Content\scss\section\_footer.scss" />
+    <Content Include="Content\scss\section\_header.scss" />
+    <Content Include="Content\scss\style.scss" />
+    <Content Include="Content\scss\utilities\_color.scss" />
+    <Content Include="Content\scss\utilities\_helper.scss" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52492</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52492/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

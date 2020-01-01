@@ -1,0 +1,6 @@
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EcommerceServices.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\bin\Debug\EcommerceServices.pdb
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\Debug\EcommerceServices.csprojAssemblyReference.cache
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\Debug\EcommerceServices.csproj.CoreCompileInputs.cache
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\Debug\EcommerceServices.dll
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceServices\obj\Debug\EcommerceServices.pdb
