@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+@@include('styles.html',{
+    "title" : "Blog Grid View || Kenne"
+})
+
+<body class="template-color-1"> 
+
+<div class="main-wrapper">
+
+    @@include('preloader.html')
+    @@include('header.html',{
+        "headerNo" : "two"
+    })
+    @@include('breadcrumb.html',{
+        "activeHeading" : "Grid View",
+        "active-page" : "Left Sidebar"
+    })
+    @@include('blog-grid_view.html',{
+        "gridView" : "leftSidebar"
+    })
+    @@include('brand.html',{
+        "brandNo" : "one",
+        "sectionSpece" : "",
+        "borderPositionTop" : "border-top",
+        "borderPositionBottom" : ""
+    })
+    @@include('footer.html',{
+        "bgColor" : "bg-smoke_color"
+    })
+    @@include('scroll-to_top.html')
+
+</div>
+
+@@include('scripts.html')
+
+</body>
+
+</html>

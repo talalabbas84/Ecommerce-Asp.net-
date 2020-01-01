@@ -13,6 +13,13 @@
     <input name="description" />
     <br />
 
+
+
+    <input id="ImagePath" value="" name="ImagePath" type="hidden" />
+    <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" />
+    <img id="prodImage" class="img img-fluid" />
+
+
     <button id="btnSave" type="button">Save</button>
 </form>
 <script>
@@ -33,4 +40,46 @@
             });
 
     });
+
+
+
+
+    $("#imageUpload").change(function () {
+        var formData = new FormData();
+        var element = this;
+        var totalFiles = element.files.length
+        for (var i = 0; i < totalFiles; i++) {
+            var file = element.files[i];
+            formData.append("Photo", file);
+        }
+
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Shared/UploadImage',
+                data: formData,
+                contentType: false,
+                processData: false
+            }
+        )
+            .done(function (response) {
+
+                if (response.Success) {
+                    $('#ImagePath').val(response.ImageURL);
+
+                    $('#prodImage').attr('src', response.ImageURL)
+                }
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+            });
+
+
+
+    });
+
+
+
 </script>

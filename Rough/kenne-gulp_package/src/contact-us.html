@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+@@include('styles.html',{
+    "title" : "Contact || Kenne"
+})
+
+<body class="template-color-1"> 
+
+<div class="main-wrapper">
+
+    @@include('preloader.html')
+    @@include('header.html',{
+        "headerNo" : "two"
+    })
+    @@include('breadcrumb.html',{
+        "activeHeading" : "Other",
+        "active-page" : "Contact"
+    })
+    @@include('contact.html')
+    @@include('brand.html',{
+        "brandNo" : "one",
+        "sectionSpece" : "",
+        "borderPositionTop" : "border-top",
+        "borderPositionBottom" : ""
+    })
+    @@include('footer.html',{
+        "bgColor" : "bg-smoke_color"
+    })
+    @@include('scroll-to_top.html')
+
+</div>
+
+@@include('scripts.html')
+@@include('google-map.html')
+
+</body>
+
+</html>

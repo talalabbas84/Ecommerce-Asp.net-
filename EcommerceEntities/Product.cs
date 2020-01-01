@@ -11,7 +11,6 @@ namespace EcommerceEntities
 
         public decimal Price { get; set; }
         public Category Category { get; set; }
-        public List<byte[]> Image { get; set; }
 
     }
 }

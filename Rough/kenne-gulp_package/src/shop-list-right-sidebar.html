@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+@@include('styles.html',{
+    "title" : "Shop List Left Sidebar || Kenne"
+})
+
+<body class="template-color-1"> 
+
+<div class="main-wrapper">
+
+    @@include('preloader.html')
+    @@include('header.html',{
+        "headerNo" : "two"
+    })
+    @@include('breadcrumb.html',{
+        "activeHeading" : "List View",
+        "active-page" : "Left Sidebar"
+    })
+    @@include('shop-list_view.html',{
+        "listView" : "listRightSidebar"
+    })
+    @@include('brand.html',{
+        "brandNo" : "one",
+        "sectionSpece" : "",
+        "borderPositionTop" : "border-top",
+        "borderPositionBottom" : ""
+    })
+    @@include('footer.html',{
+        "bgColor" : "bg-smoke_color"
+    })
+    @@include('modal.html')
+    @@include('scroll-to_top.html')
+
+</div>
+
+@@include('scripts.html')
+
+</body>
+
+</html>

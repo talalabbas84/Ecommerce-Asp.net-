@@ -3,6 +3,7 @@ using ECommerceFinal.Models;
 using EcommerceServices;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +13,8 @@ namespace ECommerceFinal.Controllers
     public class ProductController : Controller
     {
         ProductService productService = new ProductService();
+        CategoryService categoryService = new CategoryService();
+        ImageService imageService = new ImageService();
 
 
         // GET: Product
@@ -37,7 +40,6 @@ namespace ECommerceFinal.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            CategoryService categoryService = new CategoryService();
             var categories = categoryService.GetCategories();
             return PartialView(categories);
         }
@@ -45,8 +47,7 @@ namespace ECommerceFinal.Controllers
         [HttpPost]
         public ActionResult Create(ProductVM model)
         {
-           CategoryService categoryService = new CategoryService();
-
+           
            var category  = categoryService.GetCategory(model.CategoryID);
 
             var product = new Product();
@@ -54,8 +55,23 @@ namespace ECommerceFinal.Controllers
             product.Description = model.Description;
             product.Price = model.Price;
             product.Category = category;
-
+            
             productService.SaveProduct(product);
+
+
+            var newProducts = productService.GetProducts();
+
+            Product newProd = newProducts.Where(x => x.Name == model.Name).First();
+
+            if (!string.IsNullOrEmpty(model.ImagePath)){
+                Image img = new Image();
+                img.Name = model.ImagePath;
+                img.ItemID = newProd.ID;
+                img.IsProduct = true; 
+                imageService.SaveImage(img);
+            }
+
+
 
             return RedirectToAction("ProductTable");
         }
@@ -63,20 +79,89 @@ namespace ECommerceFinal.Controllers
         public ActionResult Edit(int ID)
         {
             var product = productService.GetProducts(ID);
-            return PartialView(product);
+
+            var AllProd = productService.GetProducts();
+            Product prodINeed = AllProd.Where(x => x.ID == ID).SingleOrDefault(); 
+
+
+
+
+            ProductVM model = new ProductVM();
+
+            model.ID = product.ID;
+            model.Name = product.Name;
+            model.Description = product.Description;
+            model.Price = product.Price;
+            model.CategoryID = product.Category.ID;
+
+            var obj = (imageService.GetImages(ID).Count > 0); 
+
+           if ((imageService.GetImages(ID).Count > 0))
+            {
+                model.ImagePath = imageService.GetImages(ID).First().Name;
+                model.ImageID = imageService.GetImages(ID).First().ID;
+            }
+            else
+            {
+                model.ImagePath = "./Content/images/noImage.png";
+                
+            }
+         
+            return PartialView(model);
         }
         [HttpPost]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(ProductVM model)
         {
+            Product product = new Product();
+
+            product.ID = model.ID;
+            product.Description = model.Description; ;
+            product.Name = model.Name;
+            product.Price = model.Price;
+            product.Category = categoryService.GetCategory( model.CategoryID) ;
+
+            Image img = new Image();
+            img.Name = model.ImagePath;
+            img.ID = model.ImageID;
+            img.ItemID = model.ID;
+            img.IsProduct = true;
+
+            
+
             productService.UpdateProducts(product);
+            if (!img.Name.Equals("./Content/images/noImage.png"))
+            {
+                imageService.UpdateImage(img);
+
+
+                string fullPath = Request.MapPath("./Content/uploads" + img.Name);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+
+            }
+            
+
             return RedirectToAction("ProductTable");
         }
         [HttpPost]
         public ActionResult Delete(int ID)
         {
             productService.DeleteProduct(ID);
+            imageService.DeleteImage(ID);
+
+
             return RedirectToAction("ProductTable");
         }
 
+
+        
+        
+
+
     }
+
+
+
 }

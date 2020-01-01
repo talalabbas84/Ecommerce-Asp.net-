@@ -35,7 +35,7 @@ namespace EcommerceServices
         {
             using (var context = new Db())
             {
-                return context.Products.Find(ID);
+                return context.Products.Include(x=> x.Category).SingleOrDefault(x => x.ID == ID);
 
             }
         }

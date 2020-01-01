@@ -130,10 +130,14 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryVM.cs" />
     <Compile Include="Models\ProductVM.cs" />
+    <Compile Include="Models\ShopVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +312,7 @@
     <Content Include="Content\js\vendor\vendor.js" />
     <Content Include="Content\js\vendor\vendor.min.js" />
     <Content Include="Content\php\mail.php" />
+    <Content Include="Content\upload\84b886c9-e256-4050-82d4-5380452492d7.jfif" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -397,6 +402,7 @@
     <Content Include="Views\Category\CategoryTable.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

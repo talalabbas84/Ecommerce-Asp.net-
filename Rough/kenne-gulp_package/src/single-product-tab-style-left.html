@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+@@include('styles.html',{
+    "title" : "Single Product Tab Style Left || Kenne"
+})
+
+<body class="template-color-1"> 
+
+<div class="main-wrapper">
+
+    @@include('preloader.html')
+    @@include('header.html',{
+        "headerNo" : "two"
+    })
+    @@include('breadcrumb.html',{
+        "activeHeading" : "Single Product Style",
+        "active-page" : "Tab Style Left"
+    })
+    @@include('single-product-style.html',{
+        "spStyle" : "three"
+    })
+    @@include('product-tab.html',{
+        "productTabNo" : "two"
+    })
+    @@include('product.html',{
+        "productNo" : "one",
+        "title" : "Best Seller",
+        "sectionSpace" : "pb-90"
+    })
+    @@include('brand.html',{
+        "brandNo" : "one",
+        "sectionSpece" : "",
+        "borderPositionTop" : "border-top",
+        "borderPositionBottom" : ""
+    })
+    @@include('footer.html',{
+        "bgColor" : "bg-smoke_color"
+    })
+    @@include('modal.html')
+    @@include('scroll-to_top.html')
+
+</div>
+
+@@include('scripts.html')
+
+</body>
+
+</html>

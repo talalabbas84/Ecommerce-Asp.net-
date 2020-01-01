@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+@@include('styles.html',{
+    "title" : "Error 404 || Kenne"
+})
+
+<body class="template-color-2"> 
+
+<div class="main-wrapper">
+
+    @@include('preloader.html')
+    @@include('header.html',{
+        "headerNo" : "three"
+    })
+    @@include('breadcrumb.html',{
+        "activeHeading" : "Other",
+        "active-page" : "Error 404"
+    })
+    @@include('404.html')
+    @@include('footer.html',{
+        "bgColor" : "bg-smoke_color"
+    })
+    @@include('scroll-to_top.html')
+
+</div>
+
+@@include('scripts.html')
+
+</body>
+
+</html>

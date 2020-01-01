@@ -1,10 +1,12 @@
-﻿@model List<EcommerceEntities.Category>
+﻿@model List<ECommerceFinal.Models.CategoryVM>
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create Product</h2>
-<form id="createProduct">
+
+
+<form id="createProduct" enctype="multipart/form-data">
     <label>Category</label>
     <select name="CategoryID">
         @foreach (var category in Model)
@@ -23,8 +25,16 @@
     <label>Price</label>
     <input name="price" />
     <br />
-    <button id="btnSave" type="button">Save</button>
+
+    <input id="ImagePath" value="" name="ImagePath" type="hidden"/>
+    <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" />
+    <img id="prodImage" class="img img-fluid"/>
 </form>
+<input id="btnSave" value="Save Product" type="button"  />
+
+
+
+
 <script>
     $("#btnSave").click(function () {
 
@@ -44,4 +54,46 @@
             });
 
     });
+
+
+    $("#imageUpload").change(function () {
+        var formData = new FormData();
+        var element = this;
+        var totalFiles = element.files.length
+        for (var i = 0; i < totalFiles; i++) {
+            var file = element.files[i];
+            formData.append("Photo", file);
+        }
+
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Shared/UploadImage',
+                data: formData,
+                contentType: false,
+                processData: false
+            }
+        )
+            .done(function (response) {
+
+                if (response.Success) {
+                    $('#ImagePath').val(response.ImageURL);
+
+                  $('#prodImage').attr('src', response.ImageURL)
+                }
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+            });
+
+
+
+    });
+
+
+
+
+
 </script>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+@@include('styles.html',{
+    "title" : "Login Or Register || Kenne"
+})
+
+<body class="template-color-1"> 
+
+<div class="main-wrapper">
+
+    @@include('preloader.html')
+    @@include('header.html',{
+        "headerNo" : "two"
+    })
+    @@include('breadcrumb.html',{
+        "activeHeading" : "Shop Related",
+        "active-page" : "Login Or Register"
+    })
+    @@include('login-register.html')
+    @@include('brand.html',{
+        "brandNo" : "one",
+        "sectionSpece" : "",
+        "borderPositionTop" : "border-top",
+        "borderPositionBottom" : ""
+    })
+    @@include('footer.html',{
+        "bgColor" : "bg-smoke_color"
+    })
+    @@include('scroll-to_top.html')
+
+</div>
+
+@@include('scripts.html')
+
+</body>
+
+</html>

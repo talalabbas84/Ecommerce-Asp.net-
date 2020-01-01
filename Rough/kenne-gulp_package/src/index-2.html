@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+@@include('styles.html',{
+    "title" : "Home Two || Kenne"
+})
+
+<body class="template-color-2"> 
+
+<div class="main-wrapper">
+
+    @@include('preloader.html')
+    @@include('header.html',{
+        "headerNo" : "two"
+    })
+    @@include('slider.html',{
+        "sliderNo" : "two"
+    })
+    @@include('banner.html',{
+        "bannerNo" : "three"
+    })
+    @@include('product.html',{
+        "productNo" : "one",
+        "title" : "New Product",
+        "sectionSpace" : ""
+    })
+    @@include('banner.html',{
+        "bannerNo" : "five"
+    })
+    @@include('product-tab.html',{
+        "productTabNo" : "one"
+    })
+    @@include('list-product.html',{
+        "listProductNo" : "one"
+    })
+    @@include('latest-blog.html',{
+        "latestBlogNo" : "two"
+    })
+    @@include('brand.html',{
+        "brandNo" : "one",
+        "sectionSpece" : "",
+        "borderPositionTop" : "border-top",
+        "borderPositionBottom" : ""
+    })
+    @@include('footer.html',{
+        "bgColor" : "bg-smoke_color"
+    })
+    @@include('modal.html')
+    @@include('scroll-to_top.html')
+
+</div>
+
+@@include('scripts.html')
+
+</body>
+
+</html>

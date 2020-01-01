@@ -12,5 +12,6 @@ C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\bin\De
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\bin\Debug\EntityFramework.xml
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.csproj.CopyComplete
-C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.init.resources
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.csproj.GenerateResource.cache
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.fixedImagesss.resources
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.fixedImagesssss.resources

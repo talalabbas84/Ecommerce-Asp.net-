@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+@@include('styles.html',{
+    "title" : "Home boxed layout || Kenne"
+})
+
+<body class="template-color-3 bg-smoke_color"> 
+
+<div class="main-wrapper boxed-layout bg-white_color">
+
+    @@include('preloader.html')
+    @@include('header.html',{
+        "headerNo" : "three"
+    })
+    @@include('slider.html',{
+        "sliderNo" : "three"
+    })
+    @@include('service.html',{
+        "serviceNo" : "one"
+    })
+    @@include('banner.html',{
+        "bannerNo" : "one"
+    })
+    @@include('product.html',{
+        "productNo" : "one",
+        "title" : "New Product",
+        "sectionSpace" : ""
+    })
+    @@include('banner.html',{
+        "bannerNo" : "two"
+    })
+    @@include('product-tab.html',{
+        "productTabNo" : "one"
+    })
+    @@include('latest-blog.html',{
+        "latestBlogNo" : "one"
+    })
+    @@include('brand.html',{
+        "brandNo" : "one",
+        "sectionSpece" : "pt-90",
+        "borderPositionTop" : "border-top",
+        "borderPositionBottom" : "border-bottom"
+    })
+    @@include('footer.html',{
+        "bgColor" : "bg-white_color"
+    })
+    @@include('modal.html')
+    @@include('scroll-to_top.html')
+
+</div>
+
+@@include('scripts.html')
+
+</body>
+
+</html>
