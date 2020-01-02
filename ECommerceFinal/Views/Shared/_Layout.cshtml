@@ -4,11 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
     <title>@ViewBag.Title - My ASP.NET Application</title>
-
     <link rel="shortcut icon" type="image/x-icon" href="~/Content/images/favicon.ico">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/Content/css/vendor/bootstrap.min.css">
     <!-- Fontawesome -->
@@ -29,23 +26,17 @@
     <link rel="stylesheet" href="~/Content/css/plugins/timecircles.css">
 
     <link href="~/Content/css/style.css" rel="stylesheet" />
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
-    @RenderSection("scripts", required: false)
-
 </head>
 
 
 
 
 <body class="template-color-1">
-
     <div class="main-wrapper">
-
 
         <div class="loading">
             <div class="text-center middle">
@@ -54,7 +45,6 @@
                 </span>
             </div>
         </div>
-
 
         <header class="main-header_area">
             <div class="transparent-header">
@@ -72,12 +62,24 @@
                                         <ul>
                                             <li class="dropdown-holder">
                                                 <a href="#">Home</a>
-
                                             </li>
+
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
                                             <li class="megamenu-holder position-static">
-                                                <a href="#">Shop <i class=""></i></a>
+                                                @if (User.IsInRole("Admin"))
+                                                {
+                                                    <a href="#">Shop <i class=""></i></a>
+
+                                                }
+                                                else
+                                                {
+                                                    <a href="#">Not a Shop <i class=""></i></a>
+
+                                                }
 
                                             </li>
+                                            }
                                             <li>
                                                 <a href="#">Pages <i class="ion-chevron-down"></i></a>
                                                 <ul class="kenne-dropdown">
@@ -91,10 +93,8 @@
 
 
                                         </ul>
-
                                     </nav>
                                 </div>
-
                                 <div class="header-right_area header-right_area-2">
                                     <ul>
                                         <li class="mobile-menu_wrap d-inline-block d-lg-none">
@@ -106,22 +106,27 @@
                                             <a href="#miniCart" class="minicart-btn toolbar-btn">
                                                 <div class="minicart-count_area">
                                                     <!-- we need to use pls  -->
-                                                    <span class="item-count">0</span>
+                                                    <span class="item-count cartProductCount">0</span>
                                                     <i class="ion-bag"></i>
                                                 </div>
                                             </a>
                                         </li>
-
                                         <li>
                                             <a href="#offcanvasMenu" class="menu-btn toolbar-btn color--white d-none d-lg-block">
                                                 <i class="ion-android-menu"></i>
                                             </a>
                                         </li>
+                                        @if (!User.Identity.IsAuthenticated)
+                                        {
+                                            <li><span class="ion-md-log-in addToCart"> </span> <a href=@Url.Action("Login", "Account")> Login/SignUp </a> </li>
 
-                                        <li> <button class="btn-danger button p-3"><span class="ion-log-in"> </span> Sign Up   </button> </li>
-                                        <li> <button class="btn-primary button p-3"><span class="ion-md-log-in"> </span> Log In   </button> </li>
+                                        }
+                                        else
+                                        {
+                                            <li><span class="ion-md-log-in addToCart"> </span> <a href=@Url.Action("SignOut", "Account")> Logout </a> </li>
+
+                                        }
                                     </ul>
-
 
                                 </div>
                             </div>
@@ -129,7 +134,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="header-sticky">
                 <div class="container">
@@ -152,7 +156,7 @@
                                                         <a href="#">Home <i class=""></i></a>
                                                         <ul class="kenne-dropdown">
                                                             <li><a href="#">Home One</a></li>
-                                                          
+
                                                         </ul>
                                                     </li>
                                                     <li class="megamenu-holder position-static">
@@ -166,7 +170,7 @@
                                                             <li><a href="faq.html">FAQ</a></li>
                                                         </ul>
                                                     </li>
-                                                   
+
                                                     <li><a href="#">Contact Us</a></li>
                                                     <li><a href="#">About Us</a></li>
                                                 </ul>
@@ -184,7 +188,7 @@
                                                 <li class="minicart-wrap">
                                                     <a href="#miniCart" class="minicart-btn toolbar-btn">
                                                         <div class="minicart-count_area">
-                                                            <span class="item-count">0</span>
+                                                            <span class="item-count cartProductCount">0</span>
                                                             <i class="ion-bag"></i>
                                                         </div>
                                                     </a>
@@ -199,7 +203,6 @@
                                                         <i class="ion-android-menu"></i>
                                                     </a>
                                                 </li>
-
                                             </ul>
                                         </div>
                                     </div>
@@ -216,9 +219,13 @@
                         <div class="minicart-heading">
                             <h4>Shopping Cart</h4>
                         </div>
+
+
                         <ul class="minicart-list">
-                            <li class="minicart-product">
-                                <a class="product-item_remove" h    ref="#">
+                           
+                            
+                           <li class="minicart-product">
+                                <a class="product-item_remove" h ref="#">
                                     <i class="ion-android-close"></i>
                                 </a>
                                 <div class="product-item_img">
@@ -229,36 +236,8 @@
                                     <span class="product-item_quantity">1 x $145.80</span>
                                 </div>
                             </li>
-                            <li class="minicart-product">
-                                <a class="product-item_remove" href="#">
-                                    <i class="ion-android-close"></i>
-                                </a>
-                                <div class="product-item_img">
-                                    <img src="~/Content/images/product/2-1.jpg" alt="Kenne's Product Image">
-                                </div>
-                                <div class="product-item_content">
-                                    <a class="product-item_title" href="#">
-                                        Tenetur illum
-                                        amet
-                                    </a>
-                                    <span class="product-item_quantity">1 x $150.80</span>
-                                </div>
-                            </li>
-                            <li class="minicart-product">
-                                <a class="product-item_remove" href="#">
-                                    <i class="ion-android-close"></i>
-                                </a>
-                                <div class="product-item_img">
-                                    <img src="~/Content/images/product/3-1.jpg" alt="Kenne's Product Image">
-                                </div>
-                                <div class="product-item_content">
-                                    <a class="product-item_title" href="#">
-                                        Non doloremque
-                                        placeat
-                                    </a>
-                                    <span class="product-item_quantity">1 x $165.80</span>
-                                </div>
-                            </li>
+                           
+
                         </ul>
                     </div>
                     <div class="minicart-item_total">
@@ -473,11 +452,7 @@
                                                 <span class="mm-text">My Account</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="login-register.html">
-                                                <span class="mm-text">Login | Register</span>
-                                            </a>
-                                        </li>
+
                                         <li>
                                             <a href="wishlist.html">
                                                 <span class="mm-text">Wishlist</span>
@@ -602,7 +577,7 @@
                             <li class="active"><a href="#">USD</a></li>
                         </ul>
                     </div>
-                    <div class="offcanvas-component">
+                    <div class="ofacanvas-component">
                         <span class="offcanvas-component_title">Language</span>
                         <ul class="offcanvas-component_menu">
                             <li class="active"><a href="#">English</a></li>
@@ -669,15 +644,13 @@
             <div class="global-overlay"></div>
         </header>
 
-
         @RenderBody()
-
 
         <div class="kenne-footer_area bg-smoke_color">
             <div class="footer-top_area">
                 <div class="container">
                     <div class="row">
-                     
+
                         <div class="col-lg-12 text-center ">
                             <div class="row footer-widgets_wrap">
                                 <div class="col-lg-4 col-md-4 col-sm-4">
@@ -743,17 +716,14 @@
         </div>
 
 
-      
-
     </div>
 
-  
 
-   
     <!-- Scroll To Top Start -->
     <a class="scroll-to-top" href=""><i class="ion-chevron-up"></i></a>
     <!-- Scroll To Top End -->
     <!-- jQuery JS -->
+
     <script src="~/Content/js/vendor/jquery-1.12.4.min.js"></script>
     <!-- Modernizer JS -->
     <script src="~/Content/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -761,7 +731,6 @@
     <script src="~/Content/js/vendor/popper.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="~/Content/js/vendor/bootstrap.min.js"></script>
-
     <!-- Slick Slider JS -->
     <script src="~/Content/js/plugins/slick.min.js"></script>
     <!-- Barrating JS -->
@@ -784,11 +753,31 @@
     <!-- Timecircles JS -->
     <script src="~/Content/js/plugins/timecircles.js"></script>
 
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+
     <script src="~/Content/js/main.js"></script>
 
+    @RenderSection("scripts", required: false)
 
 
+    <script>
+
+        var products = [];
+
+        var existingCookies = $.cookie('CartProducts');
+
+        if (existingCookies != undefined && existingCookies != "" && existingCookies != null) {
+            products = existingCookies.split('-');
+        } else {
+            product = [];
+        }
+
+        $('.cartProductCount').html(products.length);
+
+
+
+    </script>
 
 </body>
 

@@ -59,6 +59,14 @@
     <Compile Include="Migrations\202001012051591_fixedImagesssss.Designer.cs">
       <DependentUpon>202001012051591_fixedImagesssss.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001021048451_UserTable.cs" />
+    <Compile Include="Migrations\202001021048451_UserTable.Designer.cs">
+      <DependentUpon>202001021048451_UserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001021317208_UserRolesTable.cs" />
+    <Compile Include="Migrations\202001021317208_UserRolesTable.Designer.cs">
+      <DependentUpon>202001021317208_UserRolesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,6 +86,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001012051591_fixedImagesssss.resx">
       <DependentUpon>202001012051591_fixedImagesssss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001021048451_UserTable.resx">
+      <DependentUpon>202001021048451_UserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001021317208_UserRolesTable.resx">
+      <DependentUpon>202001021317208_UserRolesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

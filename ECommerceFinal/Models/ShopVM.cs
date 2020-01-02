@@ -8,6 +8,7 @@ namespace ECommerceFinal.Models
 {
     public class ShopVM
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public List<Image> Images { get; set; }

@@ -41,13 +41,13 @@ namespace EcommerceServices
         }
 
 
-        public void DeleteImage(int itemID)
+        public void DeleteImage(int itemID, bool isProduct)
         {
             using (var context = new Db())
             {
                 // context.Entry(category).State = System.Data.Entity.EntityState.Deleted;
 
-                List<Image> images = context.Images.Where(x=> x.ItemID.Equals(itemID)).ToList();
+                List<Image> images = context.Images.Where(x=> x.ItemID.Equals(itemID) && x.IsProduct == isProduct).ToList();
 
                 foreach(Image imgs in images)
                 {

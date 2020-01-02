@@ -120,6 +120,12 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        <br />
+                                        <div class="product-name mt-2 ">
+                                            <a class=" p-3 addToCart" data-id=@product.ID>
+                                                Add To cart
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -167,6 +173,13 @@
                                                     Description: @product.Description
                                                 </p>
                                             </div>
+
+                                            <div class="product-name my-2 ">
+                                                <a class=" p-3 addToCart" data-id=@product.ID>
+                                                    Add To cart
+                                                </a>
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -199,3 +212,32 @@
     </div>
     <!-- Kenne's Content Wrapper Area End Here -->
 </div>
+
+
+
+<script>
+    var products = [];
+
+    $(".addToCart").click(function () {
+
+        var existingCookies = $.cookie('CartProducts');
+
+        if (existingCookies != undefined && existingCookies != "" && existingCookies != null) {
+            products = existingCookies.split('-');
+        } else {
+            product = [];
+        }
+
+        var prodID = $(this).attr("data-id");
+
+        products.push(prodID);
+
+        $.cookie('CartProducts', products.join('-'), { path: '/' })
+
+
+        $('.cartProductCount').html(products.length);
+
+        alert("Product Added");
+    });
+
+</script>

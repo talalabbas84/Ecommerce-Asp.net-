@@ -15,3 +15,5 @@ C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\De
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.csproj.GenerateResource.cache
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.fixedImagesss.resources
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.fixedImagesssss.resources
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.UserTable.resources
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.UserRolesTable.resources

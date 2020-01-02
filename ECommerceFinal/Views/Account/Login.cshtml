@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<div class="spacer">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+
+<!-- Begin Kenne's Breadcrumb Area -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h2>Shop Related</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Login Or Register</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Kenne's Breadcrumb Area End Here -->
+<!-- Begin Kenne's Login Register Area -->
+<div class="kenne-login-register_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
+                <!-- Login Form s-->
+                <form action="#" id="formLogin">
+                    <div class="login-form">
+                        <h4 class="login-title">Login</h4>
+                        <div class="row">
+                            <div class="col-md-12 col-12">
+                                <label>Email Address*</label>
+                                <input name="email" type="email" placeholder="Email Address">
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label>Password</label>
+                                <input name="password" type="password" placeholder="Password">
+                            </div>
+
+                            @*<div class="col-md-4">
+                                    <div class="forgotton-password_info">
+                                        <a href="#"> Forgotten pasward?</a>
+                                    </div>
+                                </div>*@
+                            <div class="col-md-12">
+                                <button class="kenne-login_btn" type="button" id="btnLogin">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                <form action="#" id="formRegister">
+                    <div class="login-form">
+                        <h4 class="login-title">Register</h4>
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb--20">
+                                <label>Enter Name</label>
+                                <input type="text" name="name" placeholder="Name">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Email Address*</label>
+                                <input type="email" name="email" placeholder="Email Address">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Password</label>
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
+                            @*<div class="col-md-6">
+                                    <label>Confirm Password</label>
+                                    <input type="password" placeholder="Confirm Password">
+                                </div>*@
+                            <div class="col-12">
+                                <button class="kenne-register_btn" id="btnRegister" type="button">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Kenne's Login Register Area  End Here -->
+
+<script>
+    $("#btnRegister").click(function () {
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Account/SignUp',
+                data: $("#formRegister").serialize()
+            }
+        )
+            .done(function (response) {
+                console.log(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+            });
+
+    });
+
+
+    $("#btnLogin").click(function () {
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Account/Login',
+                data: $("#formLogin").serialize()
+            }
+        )
+            .done(function (response) {
+                alert("logged in");
+                window.location.href ="@Url.Action("Index", "Home")" ;
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+             window.location.href ="@Url.Action("Login", "Account")" ;
+
+            });
+
+    });
+
+</script>

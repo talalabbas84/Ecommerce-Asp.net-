@@ -1,4 +1,4 @@
-﻿@model List<ECommerceFinal.Models.CategoryVM>
+﻿@model List<EcommerceEntities.Category>
 @{
     ViewBag.Title = "Create";
 }
@@ -27,8 +27,8 @@
     <br />
 
     <input id="ImagePath" value="" name="ImagePath" type="hidden"/>
-    <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" />
-    <img id="prodImage" class="img img-fluid"/>
+    <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" multiple/>
+    <img id="prodImage" class="img img-fluid"  />
 </form>
 <input id="btnSave" value="Save Product" type="button"  />
 
@@ -63,6 +63,7 @@
         for (var i = 0; i < totalFiles; i++) {
             var file = element.files[i];
             formData.append("Photo", file);
+            console.log(formData);
         }
 
 

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace ECommerceFinal.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         ProductService productService = new ProductService();
@@ -65,6 +66,7 @@ namespace ECommerceFinal.Controllers
 
             if (!string.IsNullOrEmpty(model.ImagePath)){
                 Image img = new Image();
+                
                 img.Name = model.ImagePath;
                 img.ItemID = newProd.ID;
                 img.IsProduct = true; 
@@ -94,17 +96,22 @@ namespace ECommerceFinal.Controllers
             model.Price = product.Price;
             model.CategoryID = product.Category.ID;
 
-            var obj = (imageService.GetImages(ID).Count > 0); 
+            var obj = (imageService.GetImages(ID).Count > 0);
 
-           if ((imageService.GetImages(ID).Count > 0))
+            if ((imageService.GetImages(ID).Count > 0))
             {
-                model.ImagePath = imageService.GetImages(ID).First().Name;
-                model.ImageID = imageService.GetImages(ID).First().ID;
+                if (imageService.GetImages(ID).First().IsProduct)
+                {
+
+                    model.ImagePath = imageService.GetImages(ID).First().Name;
+                    model.ImageID = imageService.GetImages(ID).First().ID;
+                }
             }
+
             else
             {
-                model.ImagePath = "./Content/images/noImage.png";
-                
+                model.ImagePath = "/Content/images/noImage.png";
+
             }
          
             return PartialView(model);
@@ -131,7 +138,8 @@ namespace ECommerceFinal.Controllers
             productService.UpdateProducts(product);
             if (!img.Name.Equals("./Content/images/noImage.png"))
             {
-                imageService.UpdateImage(img);
+
+               
 
 
                 string fullPath = Request.MapPath("./Content/uploads" + img.Name);
@@ -149,7 +157,7 @@ namespace ECommerceFinal.Controllers
         public ActionResult Delete(int ID)
         {
             productService.DeleteProduct(ID);
-            imageService.DeleteImage(ID);
+            imageService.DeleteImage(ID, true);
 
 
             return RedirectToAction("ProductTable");

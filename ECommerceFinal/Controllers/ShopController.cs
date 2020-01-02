@@ -11,6 +11,9 @@ namespace ECommerceFinal.Controllers
     public class ShopController : Controller
     {
         // GET: Shop
+
+
+        [Authorize(Roles ="Admin")]
         public ActionResult Index()
         {
             ImageService imageService = new ImageService();
@@ -28,6 +31,7 @@ namespace ECommerceFinal.Controllers
                 vm.Name = product.Name;
                 vm.Price = product.Price;
                 vm.Description = product.Description;
+                vm.ID = product.ID; 
                 List<Image> imgs = imageService.GetImages(product.ID);
                vm.Images = imgs; 
               

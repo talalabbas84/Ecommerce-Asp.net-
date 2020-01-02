@@ -1,4 +1,5 @@
 ﻿using EcommerceEntities;
+using ECommerceFinal.Models;
 using EcommerceServices;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace ECommerceFinal.Controllers
     public class CategoryController : Controller
     {
         CategoryService categoryService = new CategoryService();
+        ImageService imageService = new ImageService();
+
         // GET: Product
         public ActionResult Index()
         {
@@ -40,11 +43,26 @@ namespace ECommerceFinal.Controllers
 
 
         [HttpPost]
-        public ActionResult Create(Category category)
+        public ActionResult Create(CategoryVM model)
         {
-
+            
             CategoryService categoryService = new CategoryService();
-            categoryService.SaveCategory(category);
+
+            Category cat = new Category();
+            cat.Name = model.Name;
+            cat.Description = model.Description;
+
+            Image img = new Image();
+
+            img.Name = model.ImagePath;
+            img.IsProduct = false;
+
+            categoryService.SaveCategory(cat);
+
+            var category = categoryService.GetCategories().ToList().Where(x => x.Name == model.Name).First();
+
+            img.ItemID = category.ID; 
+            imageService.SaveImage(img);
 
            
             return RedirectToAction("CategoryTable");
@@ -55,18 +73,61 @@ namespace ECommerceFinal.Controllers
         public ActionResult Edit(int ID)
         {
             var category = categoryService.GetCategory(ID);
-            return PartialView(category);
+
+            Image img;
+            CategoryVM model = new CategoryVM();
+
+
+
+            if ((imageService.GetImages(ID).Count > 0))
+            {
+                if(!imageService.GetImages(category.ID).First().IsProduct)
+                {
+                img = imageService.GetImages(category.ID).First();
+                model.ImagePath = imageService.GetImages(ID).First().Name;
+                model.ImageID = imageService.GetImages(ID).First().ID;
+                }
+            }
+            else
+            {
+                model.ImagePath = "/Content/images/noImage.png";
+
+            }
+            
+            model.Description = category.Description;
+            model.ID = category.ID;
+            model.Name = category.Name; 
+
+
+            return PartialView(model);
         }
         [HttpPost]
-        public ActionResult Edit(Category category)
+        public ActionResult Edit(CategoryVM model)
         {
+
+            Category category = new Category();
+            category.Name = model.Name;
+            category.Description = model.Description;
+            category.ID = model.ID;
+
+            Image img = new Image();
+            img.ID = model.ImageID;
+            img.ItemID = category.ID;
+            img.IsProduct = false;
+            img.Name = model.ImagePath; 
+
+
             categoryService.UpdateCategory(category);
+            imageService.UpdateImage(img);
+
             return RedirectToAction("CategoryTable");
         }
         [HttpPost]
         public ActionResult Delete(int ID)
         {
             categoryService.DeleteCategory(ID);
+            imageService.DeleteImage(ID,false);
+
             return RedirectToAction("CategoryTable");
         }
     }
