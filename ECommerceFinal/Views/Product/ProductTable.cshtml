@@ -1,9 +1,10 @@
 ﻿@model List<EcommerceEntities.Product>
 @{
 
-                ViewBag.Title = "ProductTable";
+    ViewBag.Title = "ProductTable";
 }
-
+<link rel="stylesheet" type="text/css" href="~/Content/DataTables/datatables.min.css" />
+<script type="text/javascript" src="~/Content/DataTables/datatables.min.js"></script>
 
 <div>
     <form method="post">
@@ -14,7 +15,7 @@
     </form>
 </div>
 <div>
-    <table class="table ">
+    <table id="ProductsTable" class="table ">
         <thead>
             <tr>
                 <td>Product Name</td>
@@ -44,6 +45,7 @@
 
 
 <script>
+    $('#ProductsTable').DataTable();
     $("#btnSearch").click(function () {
         var searchValue = $('#txtSearch').val();
         $.ajax(

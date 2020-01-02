@@ -1,0 +1,140 @@
+﻿@model List<EcommerceEntities.Pages>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+
+<div class="spacer">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+<h2>Index</h2>
+
+
+
+
+
+<p>
+    @Html.ActionLink("Create New Page", "AddPage")
+</p>
+@if (!Model.Any())
+{
+    <h1 class="text-center">There are no pages</h1>
+}
+else
+{
+    <table class="table sorting" id="pages">
+        <tr class="home">
+            <th>
+                Title
+            </th>
+            <th>
+                Slug
+            </th>
+
+            <th>
+                Sidebar
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr id="id_@item.ID" class="@item.Slug">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Slug)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasSidebar)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditPage", new { id = item.ID }) |
+
+                    @Html.ActionLink("Details", "PageDetails", new { id = item.ID }) |
+                    @if (item.Slug != "home")
+                    {
+                        @Html.ActionLink("Delete", "PageDelete", new { id = item.ID })
+                    }
+
+
+                    @*<button class="btnDelete" data-id="@item.ID">Delete</button>*@
+
+
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+}
+
+@section Scripts{
+
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <script>
+        $(function () {
+            $("table#pages tbody").sortable(
+                {
+                    items: "tr:not(.home)",
+                    placeholder: "ui-state-highlight",
+                    update: function () {
+                        var ids = $("table#pages tbody").sortable("serialize");
+                        var url = "/Pages/ReorderPages";
+                        $.post(url, ids, function (data) {
+
+                        });
+                    }
+                })
+
+        });
+    </script>
+
+
+}
+
+
+
+@*<script>
+        $(".btnDelete").click(function () {
+            debugger;
+            var confirmDelete = confirm("Are you sure you want to delete this product?");
+            if (confirmDelete) {
+                $.ajax(
+                    {
+
+                        type: 'POST',
+                        url: '/Pages/Delete',
+                        data: {
+                            ID: $(this).attr('data-id')
+                        }
+
+                    }
+                )
+                    .done(function (response) {
+                        alert("Pass");
+
+                    })
+                    .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("fails");
+                    });
+
+
+            }
+        });
+    </script>*@
+

@@ -20,6 +20,8 @@ namespace EcommerceDatabase
         public DbSet<Image> Images { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserRoles> Roles { get; set; }
+        public DbSet<Pages> Pages { get; set; }
+        public DbSet<Sidebar> Sidebars { get; set; }
 
 
     }

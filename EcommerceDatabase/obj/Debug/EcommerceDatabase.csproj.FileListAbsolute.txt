@@ -17,3 +17,4 @@ C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\De
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.fixedImagesssss.resources
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.UserTable.resources
 C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.UserRolesTable.resources
+C:\Users\Remu\Desktop\ECommerceMVC\ECommerceSite-master\EcommerceDatabase\obj\Debug\EcommerceDatabase.Migrations.sidebarpage.resources

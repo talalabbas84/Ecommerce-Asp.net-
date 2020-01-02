@@ -1,0 +1,4 @@
+ var roxyFileman = '/fileman/index.html?integration=ckeditor';
+    config.filebrowserBrowserUrl = roxyFileman;
+    config.filebrowserImageBrowserUrl = roxyFileman + '&type=image';
+    config.removeDialogTabs = 'link:upload;image;upload';

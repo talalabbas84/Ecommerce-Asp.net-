@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202001021317208_UserRolesTable.Designer.cs">
       <DependentUpon>202001021317208_UserRolesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001021705403_sidebarpage.cs" />
+    <Compile Include="Migrations\202001021705403_sidebarpage.Designer.cs">
+      <DependentUpon>202001021705403_sidebarpage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001021317208_UserRolesTable.resx">
       <DependentUpon>202001021317208_UserRolesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001021705403_sidebarpage.resx">
+      <DependentUpon>202001021705403_sidebarpage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

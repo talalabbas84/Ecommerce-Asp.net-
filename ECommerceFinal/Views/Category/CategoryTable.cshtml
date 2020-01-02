@@ -5,7 +5,8 @@
     ViewBag.Title = "CategoryTable";
 }
 
-
+<link rel="stylesheet" type="text/css" href="~/Content/DataTables/datatables.min.css" />
+<script type="text/javascript" src="~/Content/DataTables/datatables.min.js"></script>
 <div>
     <form method="post">
         <input name="Search" id="txtSearch" />
@@ -15,7 +16,7 @@
     </form>
 </div>
 <div>
-    <table class="table ">
+    <table id="ProductsTable" class="table ">
         <thead>
             <tr>
                 <td>ID</td>
@@ -29,7 +30,7 @@
             {
                 <tr>
                     <td> @category.ID</td>
-                    
+
                     <td>@category.Name</td>
                     <td>@category.Description</td>
                     <td>
@@ -46,6 +47,7 @@
 
 
 <script>
+    $('#ProductsTable').DataTable();
     $("#btnSearch").click(function () {
         var searchValue = $('#txtSearch').val();
         $.ajax(
