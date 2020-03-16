@@ -14,5 +14,9 @@ namespace ECommerceFinal.Models
         public List<Image> Images { get; set; }
         public int Rating { get; set; }
         public string Description { get; set; }
+        public Category category { get; set; }
+        public Product Product { get; set; }
+        public string ImagePath { get; set; }
+        public int ImageID { get; set; }
     }
 }

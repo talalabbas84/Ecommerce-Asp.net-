@@ -14,6 +14,10 @@
     .addToCart:hover {
         background: #a8741a;
     }
+
+
+
+
 /******************************
 
 INDEX:
@@ -6484,7 +6488,7 @@ i, .addToCart .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-p
 /*  20 - Components - Breadcrumb
 /*----------------------------------------*/
 .breadcrumb-area {
-    background-image: url("../images/breadcrumb/1.jpg");
+    background-image: url("../images/breadcrumb.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

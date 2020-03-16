@@ -1,39 +1,95 @@
 ﻿@model ECommerceFinal.Models.ProductVM
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Product";
     var obj = Model;
 
-    int i = 0; 
 }
 
 <h2>Edit Product</h2>
-<form id="editProduct">
-    <input name="ID" value="@Model.ID" type="hidden" />
-    <label>Name</label>
-    <input name="name" value="@Model.Name" />
-    <br />
-    <label>Description</label>
-    <input name="description" value="@Model.Description" />
-    <br />
-    <label>Price</label>
-    <input name="price" value="@Model.Price" />
-    <br />
+
+<div class="container-fluid mb-4">
 
 
-    <input name="CategoryID" value=@Model.CategoryID type="hidden" />
-    <input name="ImageID" value=@Model.ImageID type="hidden" />
+    <form id="editProduct">
 
 
-    <input id="ImagePath" value=@Model.ImagePath name="ImagePath" type="hidden" />
-    <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" />
-    <img id="prodImage" src=@Model.ImagePath class="img img-fluid" />
-
-    <button id="btnUpdate" type="button">Update</button>
+        <div class="row">
+            <div class="col-lg-6 ">
 
 
 
 
-</form>
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+                            <input name="ID" value="@Model.ID" type="hidden" />
+                            <label>Name</label>
+                            <input name="name" value="@Model.Name" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input name="description" value="@Model.Description" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input name="price" value="@Model.Price" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <input name="CategoryID" value=@Model.CategoryID type="hidden" />
+                <input name="ImageID" value=@Model.ImageID type="hidden" />
+
+
+                <input id="ImagePath" value=@Model.ImagePath name="ImagePath" type="hidden" />
+
+                <div class="col-lg-10 mx-5">
+                    <div class="order-button-payment">
+                        <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" multiple class="btn btn-primary form-control" />
+                    </div>
+                </div>
+
+
+                <div class="col-lg-10 mx-5">
+                    <div class="order-button-payment">
+                        <input id="btnUpdate" value="Update Product" type="button"  class="form-control" />
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="col-lg-6 ">
+
+                <img id="prodImage" src=@Model.ImagePath class="img img-fluid" width="600" height="400" />
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+
 <script>
     $("#btnUpdate").click(function () {
 

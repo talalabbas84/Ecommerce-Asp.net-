@@ -1,0 +1,123 @@
+﻿@model ECommerceFinal.Models.ShopVM
+
+
+
+
+@{
+    ViewBag.Title = "ProductDetails";
+}
+
+
+<div class="spacer">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+@if (Model != null)
+{
+
+    <!-- Begin Kenne's Single Product Area -->
+    <div class="sp-area">
+        <div class="container">
+            <div class="sp-nav">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="sp-img_area">
+                            <div class="sp-img_slider slick-img-slider kenne-element-carousel" data-slick-options='{
+                                "slidesToShow": 1,
+                                "arrows": false,
+                                "fade": true,
+                                "draggable": false,
+                                "swipe": false,
+                                "asNavFor": ".sp-img_slider-nav"
+                                }'>
+                                <div class="single-slide red zoom">
+                                    <img src="@Model.ImagePath" alt="Kenne's Product Image">
+                                </div>
+                                <div class="single-slide orange zoom">
+                                    <img src="@Model.ImagePath" alt="Kenne's Product Image">
+                                </div>
+                                <div class="single-slide brown zoom">
+                                    <img src="@Model.ImagePath" alt="Kenne's Product Image">
+                                </div>
+                                <div class="single-slide umber zoom">
+                                    <img src="@Model.ImagePath" alt="Kenne's Product Image">
+                                </div>
+                                <div class="single-slide black zoom">
+                                    <img src="@Model.ImagePath" alt="Kenne's Product Image">
+                                </div>
+                                <div class="single-slide green zoom">
+                                    <img src="@Model.ImagePath" alt="Kenne's Product Image">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="sp-content">
+                            <div class="sp-heading">
+                                <h5><a href="#">@Model.Product.Name</a></h5>
+                            </div>
+
+                            <div class="sp-essential_stuff">
+                                <ul>
+                                    <li>Product Description <a href="javascript:void(0)">@Model.Product.Description</a></li>
+
+
+                                    <li>Price: <a href="javascript:void(0)">@Model.Product.Price</a></li>
+                                </ul>
+                            </div>
+
+
+                            <div class="qty-btn_area">
+                                <ul>
+                                    <li><a class="qty-cart_btn addToCart" data-id="@Model.Product.ID">Add To Cart</a></li>
+
+                                    <li><a class="qty-cart_btn back-button">Back to Products</a></li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kenne's Single Product Area End Here -->
+}
+<script>
+     var products = [];
+
+    $(".addToCart").click(function () {
+
+        var existingCookies = $.cookie('CartProducts');
+
+        if (existingCookies != undefined && existingCookies != "" && existingCookies != null) {
+            products = existingCookies.split('-');
+        } else {
+            product = [];
+        }
+
+        var prodID = $(this).attr("data-id");
+
+        products.push(prodID);
+
+        $.cookie('CartProducts', products.join('-'), { path: '/' })
+
+
+        $('.cartProductCount').html(products.length);
+
+    });
+
+
+    $('.back-button').on('click', function () {
+
+   location.href = '@Url.Action("Index", "Shop")';
+
+
+    });
+</script>

@@ -3,34 +3,107 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create Product</h2>
+<h3 class="mx-3">Create Product</h3>
+
+<div class="container-fluid">
+
+    <form id="createProduct" enctype="multipart/form-data">
+
+        <div class="row">
+            <div class="col-lg-6 ">
 
 
-<form id="createProduct" enctype="multipart/form-data">
-    <label>Category</label>
-    <select name="CategoryID">
-        @foreach (var category in Model)
-        {
-            <option value="@category.ID">@category.Name</option>
-        }
 
-    </select>
-    <br />
-    <label>Name</label>
-    <input name="name" />
-    <br />
-    <label>Description</label>
-    <input name="description" />
-    <br />
-    <label>Price</label>
-    <input name="price" />
-    <br />
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
 
-    <input id="ImagePath" value="" name="ImagePath" type="hidden"/>
-    <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" multiple/>
-    <img id="prodImage" class="img img-fluid"  />
-</form>
-<input id="btnSave" value="Save Product" type="button"  />
+                            <label>Category Name</label>
+
+                            <select name="CategoryID" class="form-control">
+                                @foreach (var category in Model)
+                                {
+                                    <option value="@category.ID">@category.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+
+                            <label>Name</label>
+                            <input name="name" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+
+                            <label>Description</label>
+                            <input name="description" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+
+                            <label>Price</label>
+                            <input name="price" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <input id="ImagePath" value="" name="ImagePath" type="hidden" />
+
+                        <div class="col-lg-10 mx-5">
+                            <div class="order-button-payment">
+                                <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" multiple class="btn btn-primary" />
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-10 mx-5">
+                    <div class="order-button-payment">
+                        <input id="btnSave" value="Save Product" type="button" />
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="col-lg-6 ">
+
+                <img id="prodImage" class="img img-fluid" width="800" height="600" />
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+
+</div>
 
 
 
@@ -81,7 +154,7 @@
                 if (response.Success) {
                     $('#ImagePath').val(response.ImageURL);
 
-                  $('#prodImage').attr('src', response.ImageURL)
+                    $('#prodImage').attr('src', response.ImageURL)
                 }
 
             })

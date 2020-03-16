@@ -14,6 +14,6 @@ namespace ECommerceFinal.Models
         public decimal Price { get; set; }
         public string ImagePath { get; set; }
         public int ImageID { get; set; }
-
+        public int Quantity { get; set; }
     }
 }

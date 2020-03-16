@@ -9,14 +9,25 @@
 <script type="text/javascript" src="~/Content/DataTables/datatables.min.js"></script>
 <div>
     <form method="post">
-        <input name="Search" id="txtSearch" />
-        <button class="button" type="button" id="btnSearch">Search</button>
 
-        <button type="button" id="btnNew">New</button>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-1 m-1 p-2">
+                    <div class="order-button-payment">
+                        <input type="button" value="New Category" id="btnNew">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </form>
 </div>
 <div>
-    <table id="ProductsTable" class="table ">
+    <table id="ProductsTable" class="table table-striped ">
         <thead>
             <tr>
                 <td>ID</td>

@@ -11,6 +11,8 @@ using System.Web.Mvc;
 namespace ECommerceFinal.Controllers
 {
     [Authorize]
+
+
     public class ProductController : Controller
     {
         ProductService productService = new ProductService();

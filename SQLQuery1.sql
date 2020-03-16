@@ -1,1 +1,1 @@
-﻿
+﻿delete from images where id =13

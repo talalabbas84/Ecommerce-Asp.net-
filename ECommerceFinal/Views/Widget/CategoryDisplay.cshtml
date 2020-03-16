@@ -1,0 +1,68 @@
+﻿@model ECommerceFinal.Models.ProductWidgetViewModel
+
+
+@using (Ajax.BeginForm("Home", "Index", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divEmp" }))
+{
+
+    <div class="spacer">
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <br />
+        <br />
+    </div>
+    <div id="test1" class="product-tab">
+        <ul class="nav product-menu test5" id="test">
+            @foreach (var category in Model.Products.Select(x => x.Category).ToList().Distinct())
+            {
+                <li class="test" id="@category.ID">
+                    <a class="active categories" data-toggle="tab" data-id="@category.ID " id="@category.ID" value=@category.ID name=@category.ID data-filter=".@category.Name" href="#bag"><span id="spann">@category.Name</span></a>
+                </li>
+            }
+
+
+        </ul>
+        <button id="btn"></button>
+
+    </div>
+
+}
+<script>
+    //$('.categories').on('click', function () {
+    //    var id = $(this).data('id'); //attribute's value
+    //    packageSelect(id); //passing the value to function
+    //});
+
+
+    $('.categories').on('click', function () {
+        var data = $(this).data("id");
+
+
+     
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Widget/CategoryDisplay',
+                data: {
+                    ID: data
+                }
+
+
+
+
+            }
+        )
+            .done(function (response) {
+                location.href = '@Url.Action("Index", "Home")';
+
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown)
+            });
+    });
+</script>
+
+

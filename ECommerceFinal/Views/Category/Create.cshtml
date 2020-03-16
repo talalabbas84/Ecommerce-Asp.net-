@@ -1,27 +1,75 @@
 ﻿
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Category";
 }
 
-<h2>Create Category</h2>
-<form id="createCategory">
-    <label>Name</label>
-    <input name="name" />
-
-    <br />
-    <label>Description</label>
-    <input name="description" />
-    <br />
+<h3 class="mx-3">Create Category</h3>
 
 
+<div class="container-fluid">
+    <form id="createCategory">
 
-    <input id="ImagePath" value="" name="ImagePath" type="hidden" />
-    <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" />
-    <img id="prodImage" class="img img-fluid" />
+        <div class="row">
+            <div class="col-lg-6 ">
 
 
-    <button id="btnSave" type="button">Save</button>
-</form>
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+                            <label>Category Name</label>
+                            <input name="name"  class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+                            <label> Description</label>
+                            <input name="description" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <input id="ImagePath" value="" name="ImagePath" type="hidden" />
+
+                        <div class="col-lg-10 mx-5">
+                            <div class="order-button-payment">
+                                <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" />
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-10 mx-5">
+                    <div class="order-button-payment">
+                        <input id="btnSave" value="Save Category" type="button" />
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-6 ">
+
+                <img id="prodImage" class="img img-fluid" width="800" height="600" />
+            </div>
+        </div>
+
+
+    </form>
+
+
+</div>
 <script>
     $("#btnSave").click(function () {
         $.ajax(

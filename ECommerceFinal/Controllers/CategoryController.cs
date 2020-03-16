@@ -9,6 +9,8 @@ using System.Web.Mvc;
 
 namespace ECommerceFinal.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class CategoryController : Controller
     {
         CategoryService categoryService = new CategoryService();
@@ -125,8 +127,9 @@ namespace ECommerceFinal.Controllers
         [HttpPost]
         public ActionResult Delete(int ID)
         {
+            int test = ID;
             categoryService.DeleteCategory(ID);
-            imageService.DeleteImage(ID,false);
+            imageService.DeleteImage(ID, false);
 
             return RedirectToAction("CategoryTable");
         }

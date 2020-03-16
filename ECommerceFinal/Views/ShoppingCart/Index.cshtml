@@ -1,0 +1,142 @@
+﻿@model List<ECommerceFinal.Models.ProductVM>
+
+
+@{
+    ViewBag.Title = "Index";
+
+    int total = 0;
+
+
+
+
+}
+
+
+
+
+
+
+<div class="spacer">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+
+
+
+<!-- Begin Kenne's Breadcrumb Area -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h2>Our Shop </h2>
+            <ul>
+                <li><a href="index. html">Home</a></li>
+                <li class="active">Cart</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Kenne's Breadcrumb Area End Here -->
+
+
+
+
+<div class="kenne-cart-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="javascript:void(0)" id="formCart">
+                    <div class="table-content table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="kenne-product-remove">remove</th>
+                                    <th class="kenne-product-thumbnail">images</th>
+                                    <th class="cart-product-name">Product</th>
+                                    <th class="kenne-product-price">Unit Price</th>
+                                    <th class="kenne-product-quantity">Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (ECommerceFinal.Models.ProductVM product in Model)
+                                {
+                                    <tr>
+                                        <td class="kenne-product-remove ">
+                                            <a href="#" class="deleteProduct" data-id=@product.ID >
+                                                <i class="fa fa-trash"
+                                                   title="Remove"></i>
+                                            </a>
+                                        </td>
+                                        <td class="kenne-product-thumbnail"><a href="#"><img class="img img-fluid" src=@product.ImagePath height="300" width="500" alt=" Product Image" ></a></td>
+                                        <td class="kenne-product-name"><a href="#">@product.Name</a></td>
+                                        <td class="kenne-product-price"><span class="amount">Rs.@product.Price</span></td>
+                                        <td class="quantity">
+                                            <input class="" id="quantity" readonly="readonly" name="quantity" inputmode="numeric" size="6" data-id=@product.ID value=@product.Quantity type="text">
+
+                                        </td>
+                                        @{
+                                            total += Convert.ToInt32(product.Price);
+                                        }
+
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 ml-auto">
+                            <div class="cart-page-total">
+                                <h2>Cart Total</h2>
+                                <ul>
+                                    <li>Total <span>Rs.@total</span></li>
+                                </ul>
+                                <a href='@Url.Action("Index", "Checkout")'>Proceed to checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+    $('.deleteProduct').click(function () {
+        
+        var existingCookies = $.cookie('CartProducts');
+
+        if (existingCookies != undefined && existingCookies != "" && existingCookies != null) {
+            products = existingCookies.split('-');
+        } else {
+            product = [];
+        }
+        var prodID = $(this).attr("data-id");
+
+
+      products =  products.filter(function (value,index) {
+          return value != prodID; 
+        });
+
+        $.cookie('CartProducts', products.join('-'), { path: '/' })
+
+
+        $('.cartProductCount').html(products.length);
+
+   location.href = '@Url.Action("Index", "ShoppingCart")';
+
+    })
+
+
+</script>

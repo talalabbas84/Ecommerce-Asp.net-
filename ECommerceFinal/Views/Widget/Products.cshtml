@@ -1,0 +1,77 @@
+﻿@model ECommerceFinal.Models.ProductWidgetViewModel
+
+@{
+    /**/
+
+    var defaultImageURL = "/Content/images/noImage.png";
+    int test = 0;
+
+
+}
+
+<div class="spacer">
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+</div>
+
+
+@if (Model != null && Model.Products != null)
+{
+
+    foreach (var product in Model.Products)
+    {
+
+        <div class="product-item  hvr-grow">
+            <div class="single-product">
+                <div class="product-img">
+                    <a href="single-product.html">
+                        @foreach (var item in Model.Images)
+                        {
+                            if (!test.Equals(item.ID))
+                            {
+                                if (item.ItemID == product.ID && item.IsProduct == true)
+                                {
+
+
+                                    Model.ImagePath = item.Name;
+                                    Model.ImageID = item.ID;
+                                    break;
+                                }
+                                else
+                                {
+                                    Model.ImagePath = defaultImageURL;
+                                    test = item.ID;
+                                }
+                            }
+                        }
+                        <img class="primary-img   selected-product" data-id="@product.ID" src="@Model.ImagePath" height="200" width="800" alt=" Product Image">
+                        <img class="secondary-img   selected-product " data-id="@product.ID" src="@Model.ImagePath" height="200" width="800" alt=" Product Image">
+
+
+
+                    </a>
+
+
+                </div>
+                <div class="product-content text-center">
+                    <div class="product-desc_info">
+                        <h3 class="product-name  selected-product" data-id="@product.ID"><a href="single-product.html">@product.Name</a></h3>
+                        <div class="price-box">
+                            <span class="new-price">$@product.Price</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+}
+
+

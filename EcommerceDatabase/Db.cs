@@ -22,7 +22,7 @@ namespace EcommerceDatabase
         public DbSet<UserRoles> Roles { get; set; }
         public DbSet<Pages> Pages { get; set; }
         public DbSet<Sidebar> Sidebars { get; set; }
-
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
     }
 }

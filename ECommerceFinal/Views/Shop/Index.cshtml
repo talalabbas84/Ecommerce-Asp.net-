@@ -1,6 +1,6 @@
 ﻿
 
-@model List<ECommerceFinal.Models.ShopVM>
+@model IEnumerable<ECommerceFinal.Models.ShopVM>
 
 
 @{
@@ -10,6 +10,9 @@
     List<EcommerceEntities.Image> imgs = null;
 
 }
+
+
+
 <div class="spacer">
     <br />
     <br />
@@ -36,38 +39,21 @@
 <!-- Kenne's Breadcrumb Area End Here -->
 <!-- Begin Kenne's Content Wrapper Area -->
 <div class="kenne-content_wrapper">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-2">
                 <div class="shop-toolbar">
-                    <div class="product-view-mode">
-                        <a class="active grid-3" data-target="gridview-3" data-toggle="tooltip" data-placement="top" title="Grid View"><i class="fa fa-th"></i></a>
-                        <a class="list" data-target="listview" data-toggle="tooltip" data-placement="top" title="List View"><i class="fa fa-th-list"></i></a>
-                    </div>
-                    <div class="product-page_count">
-                        <p>Showing 1–9 of 40 results)</p>
-                    </div>
-                    <div class="product-item-selection_area">
-                        <div class="product-short">
-                            <label class="select-label">Short By:</label>
-                            <select class="nice-select myniceselect">
-                                <option value="1">Default sorting</option>
-                                <option value="2">Name, A to Z</option>
-                                <option value="3">Name, Z to A</option>
-                                <option value="4">Price, low to high</option>
-                                <option value="5">Price, high to low</option>
-                                <option value="5">Rating (Highest)</option>
-                                <option value="5">Rating (Lowest)</option>
-                                <option value="5">Model (A - Z)</option>
-                                <option value="5">Model (Z - A)</option>
-                            </select>
-                        </div>
-                    </div>
+
+                    @{ Html.RenderAction("SideBarCategories", "Shop");}
+
                 </div>
 
-                <div class="shop-product-wrap grid gridview-3 row">
+            </div>
 
 
+
+            <div class="col-lg-10">
+                <div id="ProductsTable" class="shop-product-wrap grid gridview-3 row">
 
                     @foreach (var product in Model)
                     {
@@ -76,25 +62,25 @@
 
 
 
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="single-product">
+                        <div  class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="product-item hvr-grow ">
+                                <div class="single-product ">
                                     <div class="product-img">
-                                        <a href="single-product.html">
+                                        <a class="selected product" data-id="@product.ID">
 
 
                                             @if (imgs.Count > 0)
                                             {
-                                                <img class="primary-img" src=@product.Images[0].Name alt="Image">
+                                                <img class="primary-img selected-product" data-id="@product.ID" src=@product.Images[0].Name height="250" width="550" alt=" Product Image">
                                                 if (imgs.Count > 1)
                                                 {
 
-                                                    <img class="secondary-img" src=@product.Images[1].Name alt=" Product Image">
+                                                    <img class="secondary-img img img-fluid selected-product" data-id="@product.ID" src=@product.Images[1].Name height="200" width="600" alt=" Product Image">
                                                 }
                                             }
                                             else
                                             {
-                                                <img class="primary-img" src=@imageURL alt="Image">
+                                                <img class="primary-img  selected-product " data-id="@product.ID" src=@imageURL height="250" width="550" alt="Image">
                                             }
 
                                         </a>
@@ -104,21 +90,11 @@
                                         <div class="product-desc_info">
 
 
-                                            <h3 class="product-name"><a href="single-product.html"> @product.Name</a></h3>
+                                            <h3 class="product-name"><a class="selected product" data-id="@product.ID"> @product.Name</a></h3>
                                             <div class="price-box">
                                                 <span class="new-price">Rs.@product.Price </span>
                                             </div>
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li class="silver-color">
-                                                        <i class="ion-ios-star-outline"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                           
                                         </div>
                                         <br />
                                         <div class="product-name mt-2 ">
@@ -131,19 +107,19 @@
                             </div>
 
 
-                            <div class="list-product_item">
-                                <div class="single-product">
+                            <div class="list-product_item hvr-grow">
+                                <div class="single-product ">
                                     <div class="product-img">
-                                        <a href="single-product.html">
+                                        <a class="selected product" data-id="@product.ID">
 
                                             @if (imgs.Count > 0)
                                             {
-                                                <img class="primary-img" src=@product.Images[0].Name alt="Image">
+                                                <img class="primary-img img img-fluid " data-id="@product.ID" src=@product.Images[0].Name alt="Image" width="400" height="500">
 
                                             }
                                             else
                                             {
-                                                <img class="primary-img" src=@imageURL alt="Image">
+                                                <img class="primary-img img img-fluid" data-id="@product.ID" src=@imageURL alt="Image"  width="400" height="500">
                                             }
 
                                         </a>
@@ -156,18 +132,7 @@
                                             <h6 class="product-name">Name: @product.Name<a href="single-product.html"></a></h6>
                                             <h6 class="product-name">Price: @product.Price<a href="single-product.html"></a></h6>
 
-                                            <div class="rating-box">
-                                                Rating:
-                                                <ul>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li class="silver-color">
-                                                        <i class="ion-ios-star-outline"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                          
                                             <div class="product-short_desc">
                                                 <p>
                                                     Description: @product.Description
@@ -188,25 +153,10 @@
                         </div>
                     }
 
-                    @*<div class="row">
-                            <div class="col-lg-12">
-                                <div class="kenne-paginatoin-area">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <ul class="kenne-pagination-box primary-color">
-                                                <li class="active"><a href="javascript:void(0)">1</a></li>
-                                                <li><a href="javascript:void(0)">2</a></li>
-                                                <li><a href="javascript:void(0)">3</a></li>
-                                                <li><a href="javascript:void(0)">4</a></li>
-                                                <li><a href="javascript:void(0)">5</a></li>
-                                                <li><a class="Next" href="javascript:void(0)">Next</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>*@
+
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -216,6 +166,7 @@
 
 
 <script>
+
     var products = [];
 
     $(".addToCart").click(function () {
@@ -229,7 +180,6 @@
         }
 
         var prodID = $(this).attr("data-id");
-
         products.push(prodID);
 
         $.cookie('CartProducts', products.join('-'), { path: '/' })
@@ -237,7 +187,39 @@
 
         $('.cartProductCount').html(products.length);
 
-        alert("Product Added");
     });
+
+
+    $('.selected-product').on('click', function () {
+        var data = $(this).data("id");
+     
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Shop/Index',
+                data: {
+                    ID: data
+                }
+
+
+
+
+            }
+        )
+            .done(function (response) {
+                // $("#tableContainer").html(response);
+                location.href = '@Url.Action("ProductDetails", "Shop")';
+            //    $('#productTable').load('/Widget/Products');
+
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+                alert(errorThrown)
+                alert(textStatus    )
+            });
+    });
+
 
 </script>

@@ -51,27 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Db.cs" />
-    <Compile Include="Migrations\202001012050564_fixedImagesss.cs" />
-    <Compile Include="Migrations\202001012050564_fixedImagesss.Designer.cs">
-      <DependentUpon>202001012050564_fixedImagesss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001012051591_fixedImagesssss.cs" />
-    <Compile Include="Migrations\202001012051591_fixedImagesssss.Designer.cs">
-      <DependentUpon>202001012051591_fixedImagesssss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001021048451_UserTable.cs" />
-    <Compile Include="Migrations\202001021048451_UserTable.Designer.cs">
-      <DependentUpon>202001021048451_UserTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001021317208_UserRolesTable.cs" />
-    <Compile Include="Migrations\202001021317208_UserRolesTable.Designer.cs">
-      <DependentUpon>202001021317208_UserRolesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001021705403_sidebarpage.cs" />
-    <Compile Include="Migrations\202001021705403_sidebarpage.Designer.cs">
-      <DependentUpon>202001021705403_sidebarpage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,23 +62,6 @@
       <Project>{b1958610-8935-4f65-959e-c8fb4e979320}</Project>
       <Name>EcommerceEntities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001012050564_fixedImagesss.resx">
-      <DependentUpon>202001012050564_fixedImagesss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001012051591_fixedImagesssss.resx">
-      <DependentUpon>202001012051591_fixedImagesssss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001021048451_UserTable.resx">
-      <DependentUpon>202001021048451_UserTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001021317208_UserRolesTable.resx">
-      <DependentUpon>202001021317208_UserRolesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001021705403_sidebarpage.resx">
-      <DependentUpon>202001021705403_sidebarpage.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

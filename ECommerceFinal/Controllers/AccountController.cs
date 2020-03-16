@@ -9,8 +9,10 @@ using System.Web.Mvc;
 using System.Web.Security;
 namespace ECommerceFinal.Controllers
 {
+
     public class AccountController : Controller
     {
+
         UserService userService = new UserService();
 
         // GET: Account
@@ -54,7 +56,17 @@ namespace ECommerceFinal.Controllers
 
         public ActionResult SignOut( )
         {
+
+            if (Request.Cookies["CartProducts"] != null)
+            {
+                var c = new HttpCookie("CartProducts");
+                c.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(c);
+            }
+
             FormsAuthentication.SignOut();
+
+
             return RedirectToAction("Index", "Home");
         }
 

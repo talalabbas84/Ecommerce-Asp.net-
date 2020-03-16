@@ -70,5 +70,15 @@ namespace EcommerceServices
             }
             return images;
         }
+        public List<Image> GetImages()
+        {
+            List<Image> images;
+            using (var context = new Db())
+            {
+                images = context.Images.ToList();
+            }
+            return images;
+        }
+
     }
 }

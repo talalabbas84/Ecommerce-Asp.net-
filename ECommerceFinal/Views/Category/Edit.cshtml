@@ -4,26 +4,77 @@
 }
 
 <h2>Edit Product</h2>
-<form id="editCategory">
-    <input name="ID" value="@Model.ID" type="hidden" />
-    <label>Name</label>
-    <input name="name" value="@Model.Name" />
-    <br />
-    <label>Description</label>
-    <input name="description" value="@Model.Description" />
 
-    <br />
-    <input name="ImageID" value=@Model.ImageID type="hidden" />
+<div class="container-fluid mb-4">
 
 
-    <input id="ImagePath" value=@Model.ImagePath name="ImagePath" type="hidden" />
-    <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" />
-    <img id="prodImage" src=@Model.ImagePath class="img img-fluid" />
-
-    <button id="btnUpdate" type="button">Update</button>
+    <form id="editCategory">
 
 
-</form>
+
+
+        <div class="row">
+            <div class="col-lg-6 ">
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+                            <input name="ID" value="@Model.ID" type="hidden" />
+                            <label>Name</label>
+                            <input name="name" value="@Model.Name"  class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-lg-10 mx-5">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input name="description" value="@Model.Description"  class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+                <input id="ImagePath" value=@Model.ImagePath name="ImagePath" type="hidden" />
+                <input name="ImageID" value=@Model.ImageID type="hidden" />
+
+
+
+                <div class="col-lg-10 mx-5">
+                    <div class="order-button-payment">
+                        <input id="imageUpload" name="Image" type="file" accept=".jpg,.jpeg,.png" class="btn btn-primary form-control"  />
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-10 mx-5">
+                    <div class="order-button-payment">
+                        <input id="btnUpdate" value="Update Product" type="button" class="form-control" />
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="col-lg-6 ">
+
+                <img id="prodImage" src=@Model.ImagePath class="img img-fluid" width="600" height="400" />
+            </div>
+
+        </div>
+
+
+
+    </form>
+</div>
 
 
 

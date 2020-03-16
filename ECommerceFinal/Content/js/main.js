@@ -726,25 +726,9 @@
 
 
 
-    //function updateShopCount() {
-    //    var cartProducts = [];
-
-    //    alert("Hello");
-
-    //    var existingCookies = $.cookie('CartProducts');
-
-    //    if (existingCookies != undefined && existingCookies != "" && existingCookies != null) {
-    //        cartProducts = existingCookies.split('-');
-    //    } else {
-    //        cartProducts = [];
-    //    }
-
-    //}
-
 
 
         function scrollToTop() {
-            alert("Hello");
             var $scrollUp = $('.scroll-to-top'),
                 $lastScrollTop = 0,
                 $window = $(window);

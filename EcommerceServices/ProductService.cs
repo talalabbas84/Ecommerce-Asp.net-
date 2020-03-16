@@ -63,6 +63,41 @@ namespace EcommerceServices
 
             }
         }
+        public List<Product> GetLatestProducts(int numberOfProducts)
+        {
+            using (var context = new Db())
+            {
+
+                return context.Products.OrderByDescending(y => y.ID).Take(numberOfProducts).Include(x => x.Category).ToList();
+
+            }
+        }
+        public List<Product> GetProductsHome(int num)
+        {
+            using (var context = new Db())
+            {
+
+                return context.Products.Take(num).Include(x => x.Category).ToList();
+
+            }
+        }
+        public List<Product> Get8categoryProducts(int catID)
+        {
+            using (var context = new Db())
+            {
+
+                return context.Products.Take(8).Include(x => x.Category).Where(x => x.Category.ID == catID).ToList();
+
+            }
+        }
+        public List<Product> GetProductsbyCategory(int ID)
+        {
+            using (var context = new Db())
+            {
+                return context.Products.Include(x => x.Category).Where(x => x.Category.ID == ID).ToList();
+
+            }
+        }
 
 
     }

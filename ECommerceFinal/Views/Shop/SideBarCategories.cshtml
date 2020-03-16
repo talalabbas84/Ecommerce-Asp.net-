@@ -1,0 +1,75 @@
+﻿@model List<ECommerceFinal.Models.ShopVM>
+
+
+
+
+
+@if (Model != null)
+{
+
+
+    <div class="kenne-sidebar_categories category-module">
+        <div class="kenne-categories_title">
+            <h5>Product Categories</h5>
+        </div>
+        <div class="sidebar-categories_menu">
+            <ul>
+                <li class="has-sub">
+
+                    <ul class="list-group">
+                        @foreach (var item in Model)
+                        {
+                            <li><a class=" categories  list-group-item hvr-sweep-to-right" data-id="@item.category.ID" value="@item.category.ID" href="javascript:void(0)">@item.category.Name</a></li>
+                        }
+
+
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+
+}
+<script>
+
+
+
+    $('.categories').on('click', function () {
+        var data = $(this).data("id");
+
+
+
+        alert(data);
+
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Shop/SideBarCategories',
+                data: {
+                    ID: data
+                }
+
+
+
+
+            }
+        )
+            .done(function (response) {
+                // $("#tableContainer").html(response);
+               
+                location.href = '@Url.Action("Index", "Shop")';
+            //    $('#productTable').load('/Widget/Products');
+
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("fails");
+                alert(errorThrown)
+                alert(textStatus    )
+            });
+    });
+</script>

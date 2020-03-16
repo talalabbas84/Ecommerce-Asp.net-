@@ -9,6 +9,8 @@ using System.Web.Mvc;
 
 namespace ECommerceFinal.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class PagesController : Controller
     {
         PageServices pageServices = new PageServices();
